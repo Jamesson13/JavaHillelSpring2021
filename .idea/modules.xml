@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaHillelSpring2021.iml" filepath="$PROJECT_DIR$/JavaHillelSpring2021.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../JavaSpringLessons2021/MavenTest/MavenTest.iml" filepath="$PROJECT_DIR$/../JavaSpringLessons2021/MavenTest/MavenTest.iml" />
+    </modules>
+  </component>
+</project>
