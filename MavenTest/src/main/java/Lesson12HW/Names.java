@@ -1,6 +1,5 @@
-package Lesson8HW;
+package Lesson12HW;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Names implements iNames{
 
@@ -10,8 +9,8 @@ public class Names implements iNames{
         return names;
     }
 
-    public boolean addName(int index, String value) {
-        String[] namesNew = new String[names.length * 2];
+    public String[] addName(int index, String value) {
+        String[] namesNew = new String[names.length +1];
         for (int i = 0; i < namesNew.length; i++) {
             if (i != index) {
                 namesNew[i] = names[i];
@@ -26,12 +25,12 @@ public class Names implements iNames{
                 break;
             System.out.println(namesNew[i]);
         }
-        return false;
+        return namesNew;
     }
 
-    public boolean addNameValue(String value) {
-        String[] namesNew = new String[names.length * 2];
-        namesNew = Arrays.copyOf(names, names.length + 2);
+    public String[] addNameValue(String value) {
+        String[] namesNew;
+        namesNew = Arrays.copyOf(names, names.length +1);
         for (int i = 0; i < namesNew.length; i++) {
             if (namesNew[i] == null) {
                 namesNew[i] = value;
@@ -43,12 +42,12 @@ public class Names implements iNames{
                 break;
             System.out.println(namesNew[i]);
         }
-        return false;
+        return namesNew;
     }
 
 
-    public boolean deleteValue(String value) {
-        String[] namesNew = new String[names.length * 2];
+    public String[] deleteValue(String value) {
+        String[] namesNew = new String[names.length-1];
         for (int i = 0; i < namesNew.length; i++) {
             if (names[i] != value) {
                 namesNew[i] = names[i];
@@ -62,26 +61,29 @@ public class Names implements iNames{
                 break;
             System.out.println(namesNew[i]);
         }
-        return false;
+        return namesNew;
     }
 
-    public void getFromIndex(int index) {
+    public String getFromIndex(int index) {
+        String value = "";
         for (int i = 0; i < names.length; i++) {
             if (i == index) {
-                System.out.println(names[i]);
+                value = names[i];
             }
         }
+        return value;
     }
 
-    public boolean containValue(String value) {
+    public String containValue(String value) {
+        String cont = "";
         for (int i = 0; i < names.length; i++) {
             if (names[i].equals(value)) {
                 System.out.println("Contain!");
                 System.out.println("Index : " + i + " value : " + names[i]);
+                cont = names[i];
             }
         }
-        return false;
-
+        return cont;
     }
 
     public boolean arrayEquals(String[] names2) {
@@ -93,26 +95,16 @@ public class Names implements iNames{
         return false;
     }
 
-    public boolean clearNames() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Are you sure yes=1/no=0");
-        System.out.println("-----> ");
-        int answer = scan.nextInt();
-        if (answer != 1) {
-            System.out.println("Sorry try next time");
-        } else {
-            System.out.println("Your Array clear");
-            for (int i = 0; i < names.length; i++) {
-                names[i] = null;
-                System.out.println(names[i]);
-            }
-        }
-        return false;
+    public String[] clearNames() {
+        String[] namesNew = new String[0];
+            names=namesNew;
+        return names;
     }
 
 
-    public void getSize(){
-        System.out.println("Size of Array  :" + names.length);
+    public int getSize(){
+       int size = names.length;
+       return size;
     }
 
 }
