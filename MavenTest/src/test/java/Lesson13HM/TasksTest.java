@@ -1,6 +1,5 @@
 package Lesson13HM;
-
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ class TasksTest {
         Tasks task = new Tasks();
         int expected = task.sum();
         int actual = 3;
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
     }
 
     @Test
@@ -32,7 +31,7 @@ class TasksTest {
         Tasks task = new Tasks();
         List<Pair> expected = task.upperCase();
         List<Pair> actual = list;
-        Assert.assertEquals(expected.toString(),actual.toString());
+        Assertions.assertEquals(expected.toString(),actual.toString());
 
     }
 
@@ -41,7 +40,7 @@ class TasksTest {
         Tasks task = new Tasks();
         List<String> expected = task.lowerCase4();
         List<String> actual = list2;
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
 
     }
 
