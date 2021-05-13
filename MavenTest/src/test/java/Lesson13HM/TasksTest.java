@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalDouble;
+import java.util.stream.DoubleStream;
 
 class TasksTest {
 
@@ -21,8 +23,8 @@ class TasksTest {
     @Test
     void sum() {
         Tasks task = new Tasks();
-        int expected = task.sum();
-        int actual = 3;
+        OptionalDouble expected = task.sum();
+        OptionalDouble actual = OptionalDouble.of(5.5);
         Assertions.assertEquals(expected,actual);
     }
 
