@@ -75,4 +75,5 @@ class NamesTest {
         int actual = 5;
         Assertions.assertEquals(expected, actual);
     }
+
 }
