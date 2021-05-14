@@ -16,6 +16,11 @@ public class Tasks {
         return res;
     }
 
+//    public ArrayList<Pair> upperCase1(){
+//        ArrayList<Pair> pair =new ArrayList<>();
+//        pair.stream().map(pair::add).
+//    }
+
     public ArrayList<Pair> upperCase(){
         ArrayList<Pair> pair = new ArrayList<>();
         for(int i = 0;i<strings.size();i++){

@@ -1,6 +1,6 @@
 package Lesson12HW;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class NamesTest {
@@ -12,14 +12,14 @@ class NamesTest {
     void getArray() {
         String [] expected = name.getArray();
         String [] actual = {"Коля", "Вася", "Петя", "Влад", "Женя"};
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
     }
 
     @Test
     void addName() {
         String[] expected = name.addName(3,"Bob");
         String[] actual = {"Коля", "Вася", "Петя","Bob", "Влад", "Женя"};
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
 
     }
 
@@ -27,14 +27,14 @@ class NamesTest {
     void addNameValue() {
         String[] expected =name.addNameValue("Bob");
         String[] actual = {"Коля", "Вася", "Петя", "Влад", "Женя","Bob"};
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
     }
 
     @Test
     void deleteValue() {
         String[] expected =name.deleteValue("Петя");
         String[] actual = {"Коля", "Вася", "Влад", "Женя"};
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
 
     }
 
@@ -42,7 +42,7 @@ class NamesTest {
     void getFromIndex() {
         String expected = name.getFromIndex(3);
         String actual = "Влад";
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
 
     }
 
@@ -50,14 +50,14 @@ class NamesTest {
     void containValue() {
         String expected = name.containValue("Влад");
         String actual = "Влад";
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
     }
 
     @Test
     void arrayEquals() {
         String[] expected = name.getArray();
         String[] actual = names2;
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
 
     }
 
@@ -65,7 +65,7 @@ class NamesTest {
     void clearNames() {
         String[] expected = name.clearNames();
         String[] actual = {};
-        Assert.assertEquals(expected,actual);
+        Assertions.assertEquals(expected,actual);
 
     }
 
@@ -73,6 +73,6 @@ class NamesTest {
     void getSize() {
         int expected = name.getSize();
         int actual = 5;
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 }
