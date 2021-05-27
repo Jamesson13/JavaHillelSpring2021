@@ -36,15 +36,7 @@ public class RockScissorsPaper {
 
     public void startGame() throws IOException {
 
-        String path = "/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameLog";
-        File gameLog = new File(path);
-        gameLog.mkdir();
 
-        String fileName = "Log_" + name.toLowerCase(Locale.ROOT) + "_" +
-                new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new Date());
-
-        Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameLog");
-        String s = currentRelativePath.toAbsolutePath().toString();
 
         System.out.println("ROCK, SCISSORS, PAPER!");
         Moves userMove = user.getMove();
@@ -67,24 +59,11 @@ public class RockScissorsPaper {
         }
         numberOfGames++;
 
-        String roundCounter = "\n " + numberOfGames + " Раунд";
-        String computerStep = "\n Ход компьютера: " + computerMove;
-        String userStep = "\n Ход игрока: " + userMove;
+        String log = "\n " + numberOfGames + " Раунд"
+        + "\n Ход компьютера: " + computerMove
+        + "\n Ход игрока: " + userMove;
 
 
-        try(FileWriter writer = new FileWriter(s+"/"+fileName, true))
-        {
-            writer.write("\n ");
-            writer.write(roundCounter);
-            writer.write(computerStep);
-            writer.write(userStep);
-            writer.flush();
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         if (user.playAgain()) {
             System.out.println();
@@ -92,10 +71,32 @@ public class RockScissorsPaper {
         } else {
             printGameStats();
         }
+
+        String path = "/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameLog";
+        File gameLog = new File(path);
+        gameLog.mkdir();
+
+        String fileName = "Log_" + name.toLowerCase(Locale.ROOT) + "_" +
+                new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new Date());
+
+        Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameLog");
+        String s = currentRelativePath.toAbsolutePath().toString();
+
+        try(FileWriter writer = new FileWriter(s+"/"+fileName, true))
+        {
+            writer.write("\n ");
+            writer.write(log);
+            writer.flush();
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
-    private void printGameStats() throws IOException {
+    private void printGameStats()  {
 
         int wins = userScore;
         int losses = computerScore;
@@ -107,7 +108,7 @@ public class RockScissorsPaper {
         gameStates.mkdir();
 
         String fileName = "States_" + name.toLowerCase(Locale.ROOT) + "_" +
-                new SimpleDateFormat("yyyy.MM.dd.HH.mm.SS").format(new Date());
+                new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new Date());
 
 
         Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameStates");
