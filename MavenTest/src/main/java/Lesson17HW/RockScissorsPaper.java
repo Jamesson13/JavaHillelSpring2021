@@ -117,7 +117,7 @@ public class RockScissorsPaper {
                 + "\n Wins: "+ wins
                 + "\n Losses: " + losses
                 + "\n Draws: " + draws
-                + "\n Percent wins: "+ percentageWon;
+                + "\n Percent wins: "+ percentageWon*100+"%";
 
         try(FileWriter writer = new FileWriter(s+"/"+fileName, true))
         {
