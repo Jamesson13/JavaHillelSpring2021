@@ -171,8 +171,6 @@ public class RockScissorsPaper {
 
 
     public void saveGameStates() throws IOException {
-//        java.io.File file = new java.io.File("GameStates");
-//        String  abspath =file.getAbsolutePath();
         String path = "/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameStates";
         String pathTXT ="/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameStates/";
         File gameStates = new File(path);
@@ -194,10 +192,6 @@ public class RockScissorsPaper {
             new File(newName).createNewFile();
         }
 
-//        try (FileWriter fw = new FileWriter(s)) {
-//           // fw.write(printGameStats());
-//
-//        }
 
     }
 }
