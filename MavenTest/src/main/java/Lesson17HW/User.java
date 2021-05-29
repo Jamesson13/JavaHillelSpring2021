@@ -21,13 +21,4 @@ public class User {
         }
         return getMove();
     }
-
-
-    public boolean playAgain() {
-        System.out.print("Do you want play more?(Y/N) ");
-        Scanner scan = new Scanner(System.in);
-        String userInput = scan.nextLine();
-        userInput = userInput.toUpperCase();
-        return userInput.charAt(0) == 'Y';
-    }
 }

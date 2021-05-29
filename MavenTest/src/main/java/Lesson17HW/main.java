@@ -3,11 +3,11 @@ package Lesson17HW;
 import java.io.IOException;
 
 public class main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         RockScissorsPaper game = new RockScissorsPaper();
-        game.nameUser();
+        game.nameUserAndRounds();
         game.startGame();
-        //game.saveGameStates();
+
     }
 }
 

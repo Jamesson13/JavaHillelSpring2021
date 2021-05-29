@@ -19,6 +19,7 @@ public class RockScissorsPaper {
     private int userScore;
     private int computerScore;
     private int numberOfGames;
+    private int rounds;
 
     public RockScissorsPaper() {
         user = new User();
@@ -27,17 +28,18 @@ public class RockScissorsPaper {
         userScore = 0;
         computerScore = 0;
         numberOfGames = 0;
+        rounds = 0;
     }
-    public void nameUser(){
+    public void nameUserAndRounds(){
         System.out.print("What are your name? --> ");
         Scanner scan = new Scanner(System.in);
         name = scan.nextLine();
+        System.out.println("How many games do you want to play? ");
+        Scanner scan1 = new Scanner(System.in);
+        rounds = scan.nextInt();
     }
 
-    public void startGame() throws IOException {
-
-
-
+    public void startGame()  {
         System.out.println("ROCK, SCISSORS, PAPER!");
         Moves userMove = user.getMove();
         Moves computerMove = computer.getMove();
@@ -65,22 +67,21 @@ public class RockScissorsPaper {
 
 
 
-        if (user.playAgain()) {
+        if (rounds!=numberOfGames) {
             System.out.println();
             startGame();
         } else {
             printGameStats();
         }
 
-        String path = "/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameLog";
-        File gameLog = new File(path);
+        Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameLog");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        File gameLog = new File(s);
         gameLog.mkdir();
 
         String fileName = "Log_" + name.toLowerCase(Locale.ROOT) + "_" +
                 new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new Date());
 
-        Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameLog");
-        String s = currentRelativePath.toAbsolutePath().toString();
 
         try(FileWriter writer = new FileWriter(s+"/"+fileName, true))
         {
@@ -103,16 +104,15 @@ public class RockScissorsPaper {
         int draws = numberOfGames - userScore - computerScore;
         double percentageWon = (wins + ((double) draws) / 2) / numberOfGames;
 
-        String path = "/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameStates";
-        File gameStates = new File(path);
+        Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameStates");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        File gameStates = new File(s);
         gameStates.mkdir();
 
         String fileName = "States_" + name.toLowerCase(Locale.ROOT) + "_" +
                 new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new Date());
 
 
-        Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameStates");
-        String s = currentRelativePath.toAbsolutePath().toString();
         String info = " Player name: "+ name
                 + "\n Wins: "+ wins
                 + "\n Losses: " + losses
@@ -140,7 +140,6 @@ public class RockScissorsPaper {
         System.out.printf("|  %6s  |  %6s  |  %6s  |  %12s  |  %14s  |\n",
                 "WINS", "LOSSES", "draws", "GAME PLAYED", "WINS PERCENT");
 
-        // Вывод линии
         System.out.print("|");
         printDashes(10);
         System.out.print("+");
@@ -167,31 +166,5 @@ public class RockScissorsPaper {
         for (int i = 0; i < numberOfDashes; i++) {
             System.out.print("-");
         }
-    }
-
-
-    public void saveGameStates() throws IOException {
-        String path = "/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameStates";
-        String pathTXT ="/Users/vlad_kodzhebash/Documents/JavaHillelSpring2021/MavenTest/src/main/java/Lesson17HW/GameStates/";
-        File gameStates = new File(path);
-        System.out.println(gameStates.mkdir());
-        String fileName = "States_" + name.toLowerCase(Locale.ROOT) + "_" +
-                new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new Date());
-        System.out.println(fileName);
-
-        Path currentRelativePath = Paths.get("src/main/java/Lesson17HW/GameStates");
-        String s = currentRelativePath.toAbsolutePath().toString();
-        System.out.println("Current relative path is: " + s);
-
-        File file = new File(s.concat(File.separator).concat(fileName));
-        if(!file.exists()){
-            file.createNewFile();
-        } else {
-            String newName = file.getName().split("\\.")[0] + "_1." + file.getName().split("\\.")[1];
-            System.out.println(newName);
-            new File(newName).createNewFile();
-        }
-
-
     }
 }
