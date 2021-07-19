@@ -48,7 +48,7 @@ public class RockScissorsPaper {
 
     public void startGame()  {
         loggerOut.info("ROCK, SCISSORS, PAPER!");
-        loggerInfo.info("Game start");
+        loggerInfo.info("RockScissorsPaper start");
         Moves userMove = user.getMove();
         Moves computerMove = computer.getMove();
         loggerOut.info("\nYour tern  " + userMove + ".");
